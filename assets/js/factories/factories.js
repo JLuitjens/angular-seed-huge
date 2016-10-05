@@ -1,15 +1,14 @@
 angular.module('app.factories', [])
-
 	.factory('aFactory', ['$http', '$q', function ($http, $q) {
 
-			return{
-				doGet: function(url){
+			return {
+				doGet: function (url) {
 					var deferred = $q.defer();
 					$http.get(url)
-						.success(function(res){
+						.success(function (res) {
 							return deferred.resolve(res);
 						})
-						.error(function(res){ //handler errors here
+						.error(function (res) { //handler errors here
 							console.log(res);
 							return deferred.reject(res);
 						});
